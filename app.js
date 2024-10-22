@@ -1,13 +1,12 @@
-const apiUrl = '';
+const apiUrl = 'https://api.thecatapi.com/v1/';
 
-async function fetcher() {
-    fetch(`${apiUrl}`, {
-        method: 'GET'
+async function catFetch() {
+    fetch(`${apiUrl}images/search`, {
+        method: 'get'
     }).then(response => {
-        //console.log(response);
+        console.log(response);
         response.json().then(data => {
-            //console.log(data);
-            
+            console.log(data);
         }).catch(err => {
             console.log(err);
         })

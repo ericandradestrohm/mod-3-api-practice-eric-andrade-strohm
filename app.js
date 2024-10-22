@@ -13,7 +13,6 @@ async function catFetch() {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data);
             // Assign image source to cat url
             catImg.src = data[0].url;
 

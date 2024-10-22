@@ -1,5 +1,3 @@
-
-const root = document.getElementById('root');
 const apiUrl = '';
 
 async function fetcher() {

@@ -36,7 +36,17 @@ catImg.id = "cat-image";
 // Version with await
 async function catFetch() {
     try {
-        const response = await fetch(`${apiUrl}images/search`, { method: 'GET' });
+        // const response = await fetch(`${apiUrl}images/search`, { 
+        //     method: 'GET' 
+        // });
+        
+        const response = await Promise.any([
+            fetch(`${apiUrl}images/search`, { method: 'GET' }),
+            // Testing fake API with Promise.any
+            //fetch(`https://notarealwebsite.api/images`, { method: 'GET' }),
+            fetch(`${apiUrl}images/search`, { method: 'GET' })
+        ]);
+        console.log('Successful fetch:', response);
         const data = await response.json();
         
         // Assign image source to cat URL

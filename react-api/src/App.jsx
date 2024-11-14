@@ -7,7 +7,7 @@ function App() {
     const [multipleButtonText, setMultipleButtonText] = useState('Fetch Multiple Cat Images');
     const [imageSrc, setImageSrc] = useState('');
     const [allImages, setAllImages] = useState([]);
-    const [workerMessage, setWorkerMessage] = useState('');
+    const [workerMessage, setWorkerMessage] = useState('Currently meowing');
 
     const fetchImage = async () => {
         try {
@@ -54,7 +54,8 @@ function App() {
                   ))}
               </div>
             </div>
-            <p>Message from worker: {workerMessage}</p>
+            <p>Message from worker:</p>
+            <p>{workerMessage}</p>
         </div>
     );
 }

@@ -54,7 +54,7 @@ function App() {
                   ))}
               </div>
             </div>
-            <p>Message from worker:</p>
+            <p>Message from cat worker:</p>
             <p>{workerMessage}</p>
         </div>
     );

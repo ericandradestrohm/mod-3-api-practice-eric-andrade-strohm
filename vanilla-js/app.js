@@ -21,7 +21,7 @@ catImg.id = "cat-image";
 //             newDiv.appendChild(catImg);
 //             mainButton.textContent = 'Click here for another cat!';
 //             newDiv.appendChild(mainButton);
-            
+
 //             // Append new div to parent div
 //             mainDiv.appendChild(newDiv);
 //         })
@@ -39,26 +39,34 @@ async function catFetch() {
         // const response = await fetch(`${apiUrl}images/search`, { 
         //     method: 'GET' 
         // });
-        
+
         const response = await Promise.any([
             fetch(`${apiUrl}images/search`, { method: 'GET' }),
             // Testing fake API with Promise.any
             //fetch(`https://notarealwebsite.api/images`, { method: 'GET' }),
             fetch(`${apiUrl}images/search`, { method: 'GET' })
         ]);
+        
+        const response2 = await Promise.all([
+            fetch(`${apiUrl}images/search`, { method: 'GET' }),
+            //fetch(`https://notarealwebsite.api/images`, { method: 'GET' }),
+            fetch(`${apiUrl}images/search`, { method: 'GET' })
+        ]);
+
         console.log('Successful fetch:', response);
-        const data = await response.json();
-        
-        // Assign image source to cat URL
-        catImg.src = data[0].url;
-        
-        // Append cat image and button to new div
-        newDiv.appendChild(catImg);
-        mainButton.textContent = 'Click here for another cat!';
-        newDiv.appendChild(mainButton);
-        
-        // Append new div to parent div
-        mainDiv.appendChild(newDiv);
+        response.json().then(data => {
+            catImg.src = data[0].url;
+
+            // Append cat image and button to new div
+            newDiv.appendChild(catImg);
+            mainButton.textContent = 'Click here for another cat!';
+            newDiv.appendChild(mainButton);
+
+            // Append new div to parent div
+            mainDiv.appendChild(newDiv);
+        }).catch(err => {
+            console.error('Error processing JSON:', err);
+        });
     } catch (err) {
         console.log(err);
     }

@@ -7,17 +7,68 @@
 
 .container {
   height: 100vh;
-  width: 100vw;
-
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.image {
+.solo-image {
   max-height: 90vh;
   max-width: 60vw;
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #1c2c4c;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+}
+
+.single-cat-image {
+  width: 80%;
+  /* Make the single image large */
+  height: auto;
+  border-radius: 10px;
+  margin: 5px auto;
+  /* Center the single image */
+  box-sizing: border-box;
+}
+
+.cat-image {
+  width: 30%;
+  /* Smaller size for each image in the gallery */
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin: 5px;
+}
+
+#single-cat-button {
+  background-color: #88dded;
+  color: #1c2c4c;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#multiple-cat-button {
+  background-color: #fac863;
+  color: #1c2c4c;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.multiple-images {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,14 +77,13 @@
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
 }
 
-#cat-image {
-  border-radius: 10px;
-  margin: 5px;
-  box-sizing: border-box;
-}
-#cat-button {
-  background-color: #88dded;
-  color: #1c2c4c;
+.image-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+
 }

@@ -8,8 +8,13 @@ export const getCatImage = async () => {
             fetch(`${apiUrl}images/search`, { method: 'GET' }),
             fetch(`${apiUrl}images/search`, { method: 'GET' })
         ]);
-        const data = await response.json();
-        return data;
+        // const data = await response.json();
+        // return data;
+
+        return response.json().then(data => {
+            console.log("Cat data fetched successfully:", data);
+            return data;
+        });
     } catch (err) {
         console.error("Error fetching cat image:", err);
     }
@@ -23,6 +28,7 @@ export const getMultipleCatImages = async () => {
             fetch(`${apiUrl}images/search`, { method: 'GET' }),
             fetch(`${apiUrl}images/search`, { method: 'GET' })
         ]);
+        
         const dataPromises = responses.map(response => response.json());
         const data = await Promise.all(dataPromises);
         return data.map(item => item[0].url);
